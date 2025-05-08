@@ -1,4 +1,5 @@
 body {
+  max-width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -8,7 +9,8 @@ body {
 }
 
 header {
-  width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
   padding: 20px;
   background-color: #333;
   color: white;
@@ -28,6 +30,7 @@ header h1 {
   width: 350px;
   height: 350px;
   border: 2px solid #000;
+  border-radius: 20px;
   position: relative;
   margin-top: 50px;
 }
@@ -74,8 +77,8 @@ header h1 {
   display: block;
   width: 100px;
   height: 50px;
-  background-color: #000;
-  color: #fff;
+  background-color: #cc1111;
+  color: #000000;
   text-align: center;
   line-height: 50px;
   cursor: pointer;
