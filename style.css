@@ -1,3 +1,7 @@
+@font-face {
+  font-family: BarlowCondensed;
+  src: url(fonts/BarlowCondensed-Bold.ttf) format('truetype');
+}
 
 body {
   max-width: 100%;
@@ -6,107 +10,88 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: sans-serif;
+  box-sizing: border-box;
 }
-.background {
+
+.cosmos {
   max-width: 1420px;
   width: 100%;
   margin: 0 auto;
-  background: conic-gradient(
-    rgba(150, 13, 168, 0.6) 0deg,
-    rgba(45, 190, 26, 0.4) 45deg,
-    rgba(65, 13, 168, 0.5) 90deg,
-    #000 135deg,
-    rgba(150, 13, 168, 0.6) 180deg,
-    rgba(45, 190, 26, 0.4) 225deg,
-    rgba(65, 13, 168, 0.5) 270deg,
-    #000 315deg,
-    rgba(150, 13, 168, 0.6) 360deg);}
- 
+  background: radial-gradient(circle, #0b0b2f, #1e2a5b, #2e2f4f, #1b4c49, #000000);
+}
+
 header {
   max-width: 500px;
   width: 100%;
-  border-radius: 20px;
-  padding: 20px;
-  background-color: #333;
-  color: white;
   text-align: center;
-  margin: 10px auto;
+  margin: 5px auto;
 }
 
 header h1 {
+  font-family: BarlowCondensed;
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: 3px;
+  color: rgb(155, 141, 141);
+  margin: 0;
+}
+
+header p {
+  font-family: BarlowCondensed;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 3px;
+  color: rgb(155, 141, 141);
   margin: 0;
 }
 
 .music-player {
   margin-top: 10px;
 }
-
+/* game content */
 .frame {
-  width: 350px;
-  height: 350px;
-  border: 2px solid #0000002d;
-  box-shadow:  0 0 20px #00000088;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #0000002d;
+  box-shadow: 0 0 10px #00000088;
   border-radius: 20px;
   position: relative;
-  margin:50px auto;
-  background: linear-gradient(135deg, #e0eafc, #4875b3);
+  margin: 10px auto 10px;
+  background: linear-gradient(135deg, #2a67c9, #00b7ffa4);
   background-size: 600% 600%;
   animation: gradientShift 4s ease-in-out alternate infinite;
 }
 
-.point {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border: 1px solid black;
-  border-radius: 50%;
+
+.fish {
+  width: 50px;
+  height: 50px;
+  background-image: url(images/bass1.svg);
+  background-size: cover;
   position: absolute;
-  top: 150px;
-  left: 150px;
+  top: 230px;
+  left: 230px;
 }
 
-.circle {
-  width: 30px;
-  height: 30px;
-  background-color: rgba(176, 217, 162, 0.436);
-  border: 1px solid black;
-  border-radius: 50%;
+.net {
+  width: 70px;
+  height: 70px;
+  background-image: url(images/fishing-net-svgrepo-com.svg);
+  background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
-  animation: move 1.7s linear infinite;
+  animation: move 2.7s linear infinite;
 }
 
-@keyframes move {
-  0%   { top: 0; left: 0; }
-  20%  { top: 50px; left: 200px; }
-  40%  { top: 200px; left: 250px; }
-  60%  { top: 300px; left: 100px; }
-  80%  { top: 150px; left: 150px; } /* where point is */
-  100% { top: 0; left: 0; }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-/* Stop animation when checkbox is checked */
-#toggle:checked ~ .frame .circle {
+#toggle:checked ~ .frame .net {
   animation-play-state: paused;
 }
 
-/* Style the button */
+/* Styled button */
 .btn {
+  font-family: BarlowCondensed;
+  font-weight: 700;
   display: block;
   width: 100px;
   height: 50px;
@@ -115,13 +100,47 @@ header h1 {
   text-align: center;
   line-height: 50px;
   cursor: pointer;
-  margin: 30px auto;
+  margin: 0px auto;
   border-radius: 5px;
 }
-
-/* Hide the checkbox */
+.btn:hover {
+  background-color: #ff0000;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
 .hidden-toggle {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+}
+/* Keyframes */
+
+@keyframes move {
+  0%   { top: 0px; left: 0px; }
+  5%   { top: 50px; left: 100px; }
+  10%  { top: 100px; left: 200px; }
+  15%  { top: 150px; left: 300px; }
+  20%  { top: 100px; left: 400px; }
+  25%  { top: 200px; left: 350px; }
+  30%  { top: 250px; left: 250px; }   /* passes near center */
+  35%  { top: 215px; left: 215px; }   /* catches the fish */
+  40%  { top: 300px; left: 150px; }
+  45%  { top: 350px; left: 100px; }
+  50%  { top: 400px; left: 50px; }
+  55%  { top: 430px; left: 150px; }
+  60%  { top: 380px; left: 300px; }
+  65%  { top: 300px; left: 430px; }
+  70%  { top: 200px; left: 400px; }
+  75%  { top: 150px; left: 300px; }
+  80%  { top: 100px; left: 200px; }
+  85%  { top: 50px; left: 100px; }
+  90%  { top: 0px; left: 0px; }
+  95%  { top: 100px; left: 50px; }
+  100% { top: 0px; left: 0px; }
+}
+
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
