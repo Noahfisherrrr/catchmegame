@@ -52,7 +52,8 @@ header p {
 .frame {
   max-width: 500px;
   width: 100%;
-  height: 500px;
+  max-height: 500px;
+  height:100%;
   border: 1px solid #0000002d;
   box-shadow: 0 0 10px #00000088;
   border-radius: 20px;
