@@ -50,7 +50,8 @@ header p {
 }
 /* game content */
 .frame {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   height: 500px;
   border: 1px solid #0000002d;
   box-shadow: 0 0 10px #00000088;
