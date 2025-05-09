@@ -1,3 +1,4 @@
+
 body {
   max-width: 100%;
   margin: 0;
@@ -7,15 +8,30 @@ body {
   align-items: center;
   font-family: sans-serif;
 }
-
+.background {
+  max-width: 1420px;
+  width: 100%;
+  margin: 0 auto;
+  background: conic-gradient(
+    rgba(150, 13, 168, 0.6) 0deg,
+    rgba(45, 190, 26, 0.4) 45deg,
+    rgba(65, 13, 168, 0.5) 90deg,
+    #000 135deg,
+    rgba(150, 13, 168, 0.6) 180deg,
+    rgba(45, 190, 26, 0.4) 225deg,
+    rgba(65, 13, 168, 0.5) 270deg,
+    #000 315deg,
+    rgba(150, 13, 168, 0.6) 360deg);}
+ 
 header {
-  max-width: 100%;
+  max-width: 500px;
+  width: 100%;
   border-radius: 20px;
   padding: 20px;
   background-color: #333;
   color: white;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 10px auto;
 }
 
 header h1 {
@@ -29,10 +45,14 @@ header h1 {
 .frame {
   width: 350px;
   height: 350px;
-  border: 2px solid #000;
+  border: 2px solid #0000002d;
+  box-shadow:  0 0 20px #00000088;
   border-radius: 20px;
   position: relative;
-  margin-top: 50px;
+  margin:50px auto;
+  background: linear-gradient(135deg, #e0eafc, #4875b3);
+  background-size: 600% 600%;
+  animation: gradientShift 4s ease-in-out alternate infinite;
 }
 
 .point {
@@ -67,6 +87,19 @@ header h1 {
   100% { top: 0; left: 0; }
 }
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 /* Stop animation when checkbox is checked */
 #toggle:checked ~ .frame .circle {
   animation-play-state: paused;
@@ -82,7 +115,7 @@ header h1 {
   text-align: center;
   line-height: 50px;
   cursor: pointer;
-  margin-top: 30px;
+  margin: 30px auto;
   border-radius: 5px;
 }
 
